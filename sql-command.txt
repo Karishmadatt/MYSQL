@@ -87,3 +87,10 @@ if we will find the sum of the column which have datatype varchar then the ouput
 syntax : select count(column-name) from table-name;
 eg : select count(name) from employ;
 count will give the number of the non-null row 
+
+6.COUNT(*)
+syntax : select count(*) from tablename;
+eg : select count(*) from employ;
+count(*) will give the count of total number of row including null rows also
+
+
