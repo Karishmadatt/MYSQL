@@ -93,4 +93,61 @@ syntax : select count(*) from tablename;
 eg : select count(*) from employ;
 count(*) will give the count of total number of row including null rows also
 
+DRL/DSL command (stands for "Data retreival language"/"Data selection language")
+It is the set commands which is use to retreive the data from the database server.It manipulate the data from the database for
+display purpose like Aggregate function
+In DRL/DSL , for accessing the data it uses DML command that is "SELECT" 
+The select command allows the database user to retreive specific information from the database
+>FROM
+>WHERE
+>GROUP BY
+>HAVING
+>ORDER BY
+>AS
+
+1.WHERE
+where cause works exactly same as if condition of the programming language.
+where can be used with 
+>select
+>update
+>delect
+>Aggregate function
+syntax for select: select column-name from tablename WHERE condition;
+eg : select * from employ where age>25;
+eg : select * from fac where name = "karishma";
+eg : select name from student where location = "Delhi";
+eg : select name from student where name = "Karishma"  AND age >25;
+syntax for update : update columnname set column = "value" where condition;
+eg : update student set name = "kiran" where name = "karishma";
+syntax for delete : delect from tablename where condition;
+eg : delete from student where age>25;
+syntax fro Aggregate function : select Aggregate() from tablename where condition
+eg : select max(salary) from exploy where age > 30;
+
+2.GROUP BY clause
+use to group the rows that have same values
+GROUP BY clause return one row for each group.
+syntax : select columnname from tablename GROUP BY columnname;
+eg : select location,count(*) from employ GROUP BY location;
+eg : select id,name from employ group by id;
+the id and the name will be display ,the name and id of the first row of the group will be displayed.
+
+3.HAVING clause
+having clause was add to sql because the where clause could not be used with the group function.Having close is used in the
+select statement to specify the filter condition for the group of rows or Aggregates
+having clause is often used with the group by clause to filter the groups based on the specific condition.if group by clause is
+ommited the having clause behave like a where clause.
+syntax: select columnname from tablename groupby columnname having condition
+eg : select name from student groupby id having percentage > 80;
+
+4.ORDER BY
+used to display in particular order in ascending or descending . By default it display in ascending order
+syntax : select columnname from tablename order by columnname.
+eg : select * from student order by age;
+syntax for  descending : select columnname from tablename order by desc columnname
+
+5. Alias (as)
+it is like local variable use to give the name to the columnname 
+syntax : select columnname as newname from tablename;
+eg : select location , count(*) as count_student from student groupby location;
 
