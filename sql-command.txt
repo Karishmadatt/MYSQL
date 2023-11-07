@@ -1,0 +1,89 @@
+1. mysql -u root -p
+2. password 58413Ka@123
+3. show databases;
+4. uses (name of the databases);
+2.create table [name of the table] ( name of the column1  datatype, name of the column2 datatypes .....)
+eg create table student (id int ,name varchar(100) , age int );
+u can describe more property of the column like primary key  eg id int primary key .
+3. describe [table name] 
+eg describe student;
+u will get to know the proper description of the table.
+4. for insert the values in the table use the 'insert ' command;
+eg insert into student values(1,'karishma',23);
+or 
+u can also insert only specific values like 
+insert into student (id,age) values (1,23);
+5. for remaming the tabel name use 'rename' command;
+rename  table oldname to newname;
+eg : rename table student to std;
+6. for adding the new column to the table use 'alter add' command 
+syntax: alter table tablename add(column name datatype);
+eg alter table student add(test int default '100');
+7. for changing the datatype of the column use 'alter modify' command;
+syntax : alter table table name modify column column name datatype;
+eg :alter table student modify column age int;
+8. for remanaming the column name or changing the column name use 'alter change' command
+syntax : alter table table name old column name new column name datatype;
+eg: alter table student change id ID int;
+9. for deleting the column name use command 'drop';
+syntax : alter table table name drop column name;
+eg : alter table student drop test;
+10: for delecting the table/database use command 'drop';
+syntax : drop table tablename;
+syntax : drop database databasename;
+eg drop table student;
+11: for delection the content of the table but not the structure of the table use 'truncate' command;
+syntax : truncate table name;
+eg : truncate student;
+
+DML command :
+1.select
+2.insert
+3.update
+4.delete
+
+12.to update the value of the column use command 'update'
+syntax : update table-name set column-name = "[value of the column]";
+eg : update student set age = 100;
+difference between truncate and delete
+truncate command will delete all the rows or content of the table but delete command is use to delete specific row but if delete command is not written with condition it will behave like the truncate command.
+eg : delete from student;
+it  will delete all the rows of the student behave like the truncate command.
+
+13. Aggregate function
+1.AVG
+2.MAX
+3.MIN
+4.SUM
+5.COUNT()
+6.COUNT(*)
+
+from 1-5 all the function uses non-null values they skip all the null value except COUNT(*)
+1.AVG
+syntax select avg(column-name) from table-name;
+eg : select avg(salary) from employ;
+this query will give the average of the salary column from the exploy table.
+if we will find the average of the column which have datatype varchar then the output will be 0.
+eg : select avg(name) from employ;
+output : 0
+
+2.MAX
+syntax : select max(column-name) from table-name;
+eg: select max(salary) from employ;
+
+3.MIN
+syntax : select min(column-name) from table-name;
+eg : select min(salary) from employ;
+
+we can use both the max and min function together
+eg : select max(salary) , min(age) from employ;
+
+4.SUM
+syntax : select sum(column-name) from table-name;
+eg : select sum(salary) from employ;
+if we will find the sum of the column which have datatype varchar then the ouput will be 0.
+
+5.COUNT()
+syntax : select count(column-name) from table-name;
+eg : select count(name) from employ;
+count will give the number of the non-null row 
