@@ -59,7 +59,7 @@ it  will delete all the rows of the student behave like the truncate command.
 6.COUNT(*)
 
 from 1-5 all the function uses non-null values they skip all the null value except COUNT(*)
-1.AVG
+1.AVG()
 syntax select avg(column-name) from table-name;
 eg : select avg(salary) from employ;
 this query will give the average of the salary column from the exploy table.
@@ -67,18 +67,18 @@ if we will find the average of the column which have datatype varchar then the o
 eg : select avg(name) from employ;
 output : 0
 
-2.MAX
+2.MAX()
 syntax : select max(column-name) from table-name;
 eg: select max(salary) from employ;
 
-3.MIN
+3.MIN()
 syntax : select min(column-name) from table-name;
 eg : select min(salary) from employ;
 
 we can use both the max and min function together
 eg : select max(salary) , min(age) from employ;
 
-4.SUM
+4.SUM()
 syntax : select sum(column-name) from table-name;
 eg : select sum(salary) from employ;
 if we will find the sum of the column which have datatype varchar then the ouput will be 0.
@@ -150,4 +150,44 @@ syntax for  descending : select columnname from tablename order by desc columnna
 it is like local variable use to give the name to the columnname 
 syntax : select columnname as newname from tablename;
 eg : select location , count(*) as count_student from student groupby location;
+
+Distinct keyword
+syntax : select Distinct columnname from tablename;
+eg : select Distinct name from student;
+eg : select Distinct name , subject from student;
+groupby behaves like the Distinct if used without Aggregate function
+difference between groupby and Distinct is groupby sort the result where as Distinct do not.
+Distinct is also used with the Aggregate function
+syntax : select Aggregate function( Distinct columnname) from tablename;
+eg : select count(Distinct name) from student;
+
+Limit keyword
+use to give the limit of number of rows;
+eg : select * from student where age>20 limit 4;
+
+In keyword
+it is the shorthand of the multiple OR operator
+syntax : select columnname from student where columnname in(); 
+eg : select * from student where age in(20,24);
+eg : select 10 in(10,20,30); it will return 1 
+eg : select 40 in (10,20,30); it will return 0;
+will can neglect the 'in' keyword by using 'not in' keyword.
+
+between keyword
+between keyword will give the ouput within the range
+eg: select * from student where age between 20 and 23.
+we can neglect the 'between' keyword by using 'not between' keyword.
+
+like operator
+% means 0,1 or multiple character
+_ means placeholder for only one character
+like "s%" means all the name starting with s.
+escape operator : if we want '%' operator as a character in the string then then we use escape operator
+Let's say you wanted to search for a % or a _ character in the MySQL
+LIKE condition. You can do this using an Escape character.By default '\' is the escape modifier.
+• SELECT * FROM table_name WHERE column_name LIKE 'G\%';
+• We can override the default escape character in MySQL by providing
+the ESCAPE modifier as follows:
+• SELECT * FROM table_name WHERE column_name LIKE 'G!%'
+ESCAPE '!';
 
